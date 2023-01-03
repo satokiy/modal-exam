@@ -5,13 +5,14 @@
     <link rel="stylesheet" href="style.css" />
     <title>テスト</title>
     <meta name="description" content="テスト中" />
+    <script src="modal.js" defer></script>
   </head>
 
   <body>
     <div id="modal">
       <div style="height: 100px"></div>
       <div class="modal-out">
-        <button class="modal-close">X</button>
+        <button class="modal-close">x</button>
         <span style="color: white">← 押すとモーダルが閉じます</span>
       </div>
       <div class="modal-content">
@@ -26,23 +27,7 @@
       </div>
     </div>
   </body>
-  <script>
-    const closeButton = document.getElementsByClassName("modal-close")[0];
-
-    closeButton.addEventListener("click", (e) => {
-      e.preventDefault();
-      console.log(closeButton);
-      // 親windowがいるときのみ発火
-      if (window.parent !== window) {
-        const message = JSON.stringify({
-          message: "CANCEL_MODAL",
-        });
-        window.parent.postMessage(message, "*");
-      } else {
-        console.log("no parent. closing.");
-      }
-    });
-  </script>
+  
   <style>
     body {
       height: 600px;
