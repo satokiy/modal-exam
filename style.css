@@ -3,6 +3,7 @@ h1 {
   text-align: center;
 }
 
+
 .button {
   z-index: 1;
   background: red;
@@ -19,9 +20,15 @@ h1 {
   align-content: center;
 }
 #my-iframe {
-  text-align: center;
-  width: 100%;
-  height: 100%;
+  background-color: #f4f4f4;
+  
+  width: 400px;
+  max-height: 800px;
+  min-height: 600px;
+  border-radius: 10px;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
 }
 
 .overlay {
@@ -33,7 +40,14 @@ h1 {
   width: 100%;
   visibility: visible;
   background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 100px;
 }
+
+#modal {
+  height: 600px;
+}
+
 .modal-out {
   width: 400px;
   height: 40px;
@@ -42,20 +56,10 @@ h1 {
   animation-duration: 1s;
 }
 
-.modal-header {
+/* .modal-header {
   padding: 12px;
-}
+} */
 
-.modal-content {
-  background-color: #f4f4f4;
-  height: 600px;
-  width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
-  animation-name: modalopen;
-  animation-duration: 1s;
-  margin: auto;
-}
 
 .modal-body {
   padding: 12px;
@@ -71,11 +75,21 @@ h1 {
 }
 
 .modal-close {
+  padding: 12px 12px 0 12px;
   width: 40px;
   border: 0;
   background: transparent;
-  color: white;
   font-size: 32px;
   text-align: center;
   cursor: pointer;
+}
+
+.go-other > button {
+  background: red;
+  color: white; border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 4px;
+  height: 32px
+
 }
