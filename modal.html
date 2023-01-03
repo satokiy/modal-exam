@@ -8,36 +8,40 @@
   </head>
 
   <body>
-    <div class="modal-out">
-      <p style="color: white;">ここがiframeです</p>
-      <button class="modalClose">X</button>
-      <span style="color: white;">← 押すとモーダルが閉じます</span>
-    </div>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1>モーダルです</h1>  
+    <div id="modal">
+      <div style="height: 100px"></div>
+      <div class="modal-out">
+        <button class="modal-close">X</button>
+        <span style="color: white">← 押すとモーダルが閉じます</span>
       </div>
-      <div class="modal-body">
-        <p>modal modal modal modal modal modal modal </p>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1>モーダルです</h1>
+        </div>
+        <div class="modal-body">
+          <p>modal modal modal modal modal modal modal</p>
+          <p>modal modal modal modal modal modal modal</p>
+          <p>modal modal modal modal modal modal modal</p>
+        </div>
       </div>
     </div>
   </body>
   <script>
-    const closeButton = document.getElementsByClassName('modalClose')[0];
-  
-    closeButton.addEventListener('click', e => {
+    const closeButton = document.getElementsByClassName("modal-close")[0];
+
+    closeButton.addEventListener("click", (e) => {
       e.preventDefault();
       console.log(closeButton);
       // 親windowがいるときのみ発火
-      if(window.parent !== window) {
+      if (window.parent !== window) {
         const message = JSON.stringify({
-          message: 'CANCEL_MODAL'
+          message: "CANCEL_MODAL",
         });
-        window.parent.postMessage(message, '*')
+        window.parent.postMessage(message, "*");
       } else {
-        console.log('no parent. closing.')
+        console.log("no parent. closing.");
       }
-    })
+    });
   </script>
   <style>
     body {
