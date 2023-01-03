@@ -20,7 +20,7 @@ otherButton.addEventListener("click", (e) => {
   if (window.parent !== window) {
     const message = JSON.stringify({
       message: "GO_OTHER",
-      url: "https://www.netprotections.com/",
+      url: "https://news.yahoo.co.jp/",
     });
     window.parent.postMessage(message, "*");
   } else {
