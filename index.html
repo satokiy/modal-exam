@@ -23,37 +23,20 @@
       id: "my-iframe",
       src: "modal.html",
       class: "frame_center",
-      height: '500px',
-      width: '500px',
+      height: "600px",
+      width: "500px",
       frameborder: "0",
       scrolling: "no",
     };
     setAttr(iframe, iframeAttr);
-    
-    window.addEventListener('message', (e) => {
-      const message = JSON.parse(e.data).message;
-      console.log(message);
 
-      if(message === 'CANCEL_MODAL') {
-        div.removeChild(iframe)
-        div.classList.remove('overlay')
-      }
-    })
-
-    // html要素に一括で属性を付与する
-    function setAttr(elm, obj) {
-      for (const i of Object.entries(obj)) {
-        elm.setAttribute(i[0], i[1]);
-      }
-    }
-
-    // open button
+    // button
     const openButton = document.createElement("button");
     const openButtonAttr = {
       id: "modalOpen",
       class: "button",
     };
-    openButton.innerText = "click me";
+    openButton.innerText = "Open Modal";
     setAttr(openButton, openButtonAttr);
     app.appendChild(openButton);
 
@@ -63,6 +46,23 @@
       div.appendChild(iframe);
     });
 
+    // close event
+    window.addEventListener("message", (e) => {
+      const message = JSON.parse(e.data).message;
+      console.log(message);
+
+      if (message === "CANCEL_MODAL") {
+        div.removeChild(iframe);
+        div.classList.remove("overlay");
+      }
+    });
+
+    // html要素に一括で属性を付与する
+    function setAttr(elm, obj) {
+      for (const i of Object.entries(obj)) {
+        elm.setAttribute(i[0], i[1]);
+      }
+    }
   </script>
 
   <style>
@@ -73,13 +73,18 @@
       padding: 0 1em;
       margin: 0 1em;
       border: 0;
-      width: 100px;
+      width: 120px;
       height: 40px;
       font-size: 16px;
       position: relative;
       border-radius: 10px;
       cursor: pointer;
       align-content: center;
+    }
+    #my-iframe {
+      text-align: center;
+      width: 100%;
+      height: 100%;
     }
   </style>
 </html>

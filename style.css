@@ -3,8 +3,11 @@ h1 {
   text-align: center;
 }
 .frame_center {
-  text-align: center;
-  margin-left: 35%;
+  /* display: flex;
+  justify-content:center;
+  text-align: center; */
+  /* margin: 0 auto; */
+  
 }
 
 .overlay {
@@ -16,22 +19,43 @@ h1 {
   width: 100%;
   visibility: visible;
   background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+.modal-out {
+  width: 400px;
+  margin: auto;
+  animation-name: modalopen;
+  animation-duration: 1s;
 }
 .modal-content {
   background-color: #f4f4f4;
   z-index: 200;
   position: relative;
-  height: 300px;
-  width: 300px;
-  top: 100px;
-  left: 100px;
+  height: 500px;
+  width: 400px;
   overflow: hidden;
   border-radius: 10px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
   animation-name: modalopen;
   animation-duration: 1s;
+  margin: auto;
 }
 @keyframes modalopen {
-      from {opacity: 0;}
-      to {opacity: 1;}
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modalClose {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+}
