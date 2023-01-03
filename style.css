@@ -19,9 +19,25 @@ h1 {
   cursor: pointer;
   align-content: center;
 }
+
+.button-close {
+  width: 400px;
+  margin: auto;
+  text-align: left;
+  height: 40px;
+}
+
+.modal-close {
+  border: 0;
+  background: transparent;
+  font-size: 32px;
+  text-align: center;
+  cursor: pointer;
+}
+
+
 #my-iframe {
   background-color: #f4f4f4;
-  
   width: 400px;
   max-height: 800px;
   min-height: 600px;
@@ -74,22 +90,12 @@ h1 {
   }
 }
 
-.modal-close {
-  padding: 12px 12px 0 12px;
-  width: 40px;
-  border: 0;
-  background: transparent;
-  font-size: 32px;
-  text-align: center;
-  cursor: pointer;
-}
-
 .go-other > button {
-  background: red;
+  background: blue;
   color: white; border: 0;
   border-radius: 4px;
   cursor: pointer;
-  margin: 4px;
+  margin: 8px;
   height: 32px
 
 }
