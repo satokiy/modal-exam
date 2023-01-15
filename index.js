@@ -29,7 +29,7 @@ app.appendChild(openButton);
 const closeButton = document.createElement("div");
 closeButton.className = "button-close";
 closeButton.innerHTML = `
-<button class="modal-close">X</button>
+<button class="modal-close">✕</button>
 `;
 
 // open modal
