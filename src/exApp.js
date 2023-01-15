@@ -23,12 +23,35 @@ export function start() {
   iframe.height = iframe.contentWindow.document.body.scrollHeight + "px";
 }
 
+/**
+ * config
+ */
+export function config(obj) {
+  window.addEventListener("message", (e) => {
+    const data = JSON.parse(e.data);
+    const message = data.message;
+
+    if (message === "CANCEL_MODAL") {
+      fadeOutModal();
+      setTimeout(() => {
+        // サイト側で定義した処理を実行
+        obj.cancel();
+      }, 400);
+    }
+    if (message === "GO_OTHER") {
+      div.removeChild(iframe);
+      div.classList.remove("overlay");
+      // サイト側で定義した処理を実行
+      obj.goOther(data.url);
+    }
+  });
+}
+
 // close時の挙動
 closeButton.addEventListener("click", (e) => {
   e.preventDefault();
   fadeOutModal();
 });
-
 
 function fadeOutModal() {
   iframe.classList.add("fadeout");
