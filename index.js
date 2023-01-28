@@ -1,28 +1,28 @@
+"use strict";
+exports.__esModule = true;
 /**
  * サイト側の実装を用意する
  * 必要なのはボタンとコールバック
  */
-import { openButtonEl } from "./src/components/openButton.js";
-import { start, config } from "./src/exApp.js";
-
-const openButton = openButtonEl();
+var openButton_js_1 = require("./src/components/openButton.js");
+var exApp_js_1 = require("./src/exApp.js");
+var openButton = (0, openButton_js_1.openButtonEl)();
+var app = document.getElementById('app');
 app.appendChild(openButton);
-
 // open modal
 openButton.addEventListener("click", function () {
-  start();
+    (0, exApp_js_1.start)();
 });
-
-config({
-  cancel: () => {
-    console.log("cancel!!!");
-    window.location.href = "thanks.html";
-  },
-  goOther: (url) => {
-    console.log("go other!!!");
-    if (url) {
-      console.log(url);
-      window.location.href = url;
+(0, exApp_js_1.config)({
+    cancel: function () {
+        console.log("cancel!!!");
+        window.location.href = "thanks.html";
+    },
+    goOther: function (url) {
+        console.log("go other!!!");
+        if (url) {
+            console.log(url);
+            window.location.href = url;
+        }
     }
-  },
 });
